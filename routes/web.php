@@ -68,7 +68,7 @@ Route::delete('/country/delete/{id}', [CountryController::class, 'delete'])->nam
 #Category Route;
 Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
 Route::get('/category/{id}', [CategoryController::class, 'getById'])->name('category.get');
-Route::delete('/category', [CategoryController::class, 'delete'])->name('category.delete');
+Route::delete('/category/{id}', [CategoryController::class, 'delete'])->name('category.delete');
 Route::patch('/category', [CategoryController::class, 'update'])->name('category.update');
 Route::post('/category', [CategoryController::class, 'store'])->name('category.store');
 

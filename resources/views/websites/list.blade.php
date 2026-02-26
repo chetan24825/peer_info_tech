@@ -5,7 +5,7 @@
   $blade_file_name = "List";
 @endphp
   <style>
-    
+
     /* Center the processing loader */
     .dataTables_processing {
       position: absolute !important;
@@ -76,7 +76,7 @@
 
 
       {{-- <button class="btn btn-primary-light btn-wave me-2">
-        <i class="bx bx-crown align-middle"></i> Create 
+        <i class="bx bx-crown align-middle"></i> Create
       </button> --}}
 
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addModal">
@@ -106,13 +106,14 @@
               @csrf
 
 
+
               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                 <label for="input-label" class="form-label">Name:</label>
                 <input name="name" placeholder="Enter Platform Name" type="text" class="form-control" id="input"
                   required>
               </div>
 
-               
+
 
 
 
@@ -171,7 +172,7 @@
       <div class="card custom-card">
         <div class="card-header justify-content-between">
           {{-- <div class="row w-100 mr-0 d-flex">
-           
+
 
             <div class="col-6 col-sm-2 col-md-2 col-lg-2 col-xl-2 p-0 column">
               <div class="report_reference_filter_wrapper" style="margin-top:3px;margin-left:10px;">
@@ -316,7 +317,7 @@
               data: 'status',
               name: 'status'
             },
-             { 
+             {
               data: 'action',
               name: 'action',
               orderable: false,

@@ -10,18 +10,18 @@ use Yajra\DataTables\DataTables;
 class WebsiteTypeController extends Controller
 {
 
-  public $table_name = 'website_types';
-  public $success_message =  'Platform';
-  private $folder_prefix = "websites";
+    public $table_name = 'website_types';
+    public $success_message =  'Platform';
+    private $folder_prefix = "websites";
 
-  public function index(Request $request)
-  {
-    $data = WebsiteType::get();
-    if ($request->ajax()) {
-      return DataTables::of($data)
-        ->addIndexColumn()
-        ->addColumn('action', function ($data) {
-          return '<div class="hstack gap-2 flex-wrap">
+    public function index(Request $request)
+    {
+        $data = WebsiteType::get();
+        if ($request->ajax()) {
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function ($data) {
+                    return '<div class="hstack gap-2 flex-wrap">
                 <a href="javascript:void(0);" class="text-info fs-14 lh-1 edit_btn" data-id="' . $data->id . '"><i
                         class="ri-edit-line"></i>
                 </a>
@@ -29,48 +29,47 @@ class WebsiteTypeController extends Controller
                         class="ri-delete-bin-5-line"></i>
                 </a>
             </div>';
-        })
-        ->make(true);
+                })
+                ->make(true);
+        }
+
+        return view($this->folder_prefix . '.' . 'list');
     }
 
-    return view($this->folder_prefix . '.' . 'list');
-  }
-
-  public function update(Request $request)
-  {
-    $response = updateHelper($this->table_name, $request->update_id, $request, $this->success_message);
-    if ($request) {
-      return redirect()->back();
-    } else {
-      return response()->json(['success' => true]);
+    public function update(Request $request)
+    {
+        $response = updateHelper($this->table_name, $request->update_id, $request, $this->success_message);
+        if ($request) {
+            return redirect()->back();
+        } else {
+            return response()->json(['success' => true]);
+        }
     }
-  }
 
-  public function getById($id)
-  {
-    $data = SearchByIdHelper($this->table_name, $id);
-    if ($data) {
-      return response()->json(['success' => true, 'data' => $data], 200);
-    } else {
-      return response()->json(['success' => true, 'data' => $data], 200);
+    public function getById($id)
+    {
+        $data = SearchByIdHelper($this->table_name, $id);
+        if ($data) {
+            return response()->json(['success' => true, 'data' => $data], 200);
+        } else {
+            return response()->json(['success' => true, 'data' => $data], 200);
+        }
     }
-  }
 
-  public function delete($id)
-  {
-    // return $id;
-    deleteHelper($this->table_name, $id, $this->success_message);
-  }
-
-
-  public function store(Request $request)
-  {
-    $store = storeHelper($this->table_name, $request, $this->success_message);
-    if ($store) {
-      return redirect()->back();
-    } else {
-      return redirect()->back();
+    public function delete($id)
+    {
+        // return $id;
+        deleteHelper($this->table_name, $id, $this->success_message);
     }
-  }
+
+
+    public function store(Request $request)
+    {
+        $store = storeHelper($this->table_name, $request, $this->success_message);
+        if ($store) {
+            return redirect()->back();
+        } else {
+            return redirect()->back();
+        }
+    }
 }
-
