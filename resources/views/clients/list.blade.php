@@ -117,7 +117,7 @@
     <div class="card custom-card">
       <div class="card-header justify-content-between">
         <div class="row w-100 mr-0 d-flex">
- 
+
           <div class="col-6 col-sm-2 col-md-2 col-lg-2 col-xl-2 p-0 column">
             <div class="report_reference_filter_wrapper" style="margin-top:3px;margin-left:10px;">
               <div class="">

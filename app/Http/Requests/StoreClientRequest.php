@@ -21,19 +21,34 @@ class StoreClientRequest extends FormRequest
      */
     public function rules(): array
     {
-          return [
+        // return [
+        //     'name'  => 'required|string|max:50',
+        //     'email' => 'required|email|unique:clients,email',
+        //     'phone'  => 'required|string|min:10|max:15',
+        //     'country_id' => 'required|exists:countries,id',
+        //     'service_id' => 'required|exists:service_types,id',
+        //     'domain_name'  => 'required|string|max:255',
+        //     'start_date' => 'required|date',
+        //     'price' => 'required|numeric|min:1',
+        //     'duration' => 'required|in:1,2,3,4,5',
+        //     'website_type_id' => 'required|exists:website_types,id',
+        //     'platform_id' => 'required|exists:platforms,id',
+        //     'category_id' => 'required|exists:categories,id',
+        // ];
+
+        return [
             'name'  => 'required|string|max:50',
-            'email' => 'required|email|unique:clients,email',
-            'phone'  => 'required|string|min:10|max:15',
-            'country_id' => 'required|exists:countries,id',
-            'service_id' => 'required|exists:service_types,id',
+            'email' => 'nullable|email|unique:clients,email',
+            'phone'  => 'nullable|string|min:10|max:15',
+            'country_id' => 'nullable|exists:countries,id',
+            'service_id' => 'nullable|exists:service_types,id',
             'domain_name'  => 'required|string|max:255',
-            'start_date' => 'required|date',
+            'start_date' => 'nullable|date',
             'price' => 'required|numeric|min:1',
-            'duration' => 'required|in:1,2,3,4,5',
-            'website_type_id' => 'required|exists:website_types,id',
-            'platform_id' => 'required|exists:platforms,id',
-            'category_id' => 'required|exists:categories,id',
-    ];
+            'duration' => 'nullable|in:1,2,3,4,5',
+            'website_type_id' => 'nullable|exists:website_types,id',
+            'platform_id' => 'nullable|exists:platforms,id',
+            'category_id' => 'nullable|exists:categories,id',
+        ];
     }
 }
